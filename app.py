@@ -10,7 +10,7 @@ def hello_world():
 
 @app.route('/image.jpg')
 def logo():
-    with open('media/test.jpg', 'rb') as bites:
+    with open('/home/bryandeagle/quote/media/test.jpg', 'rb') as bites:
         return send_file(io.BytesIO(bites.read()),
                          attachment_filename='wallpaper.jpg',
                          mimetype='image/jpg')
