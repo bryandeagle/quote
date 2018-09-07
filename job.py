@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import feedparser
 from PIL import Image, ImageDraw, ImageFont
 
@@ -32,7 +31,7 @@ def draw(quote, author):
     img = Image.new('RGB', (screen_width, screen_height), color='black')
     draw = ImageDraw.Draw(img)
     # Add Quote
-    w = wrap('“{}”'.format(quote), font, draw, 980)
+    w = wrap(u'\u201c{}\u201d'.format(quote), font, draw, 980)
     line_height = 1.5 * draw.textsize('M', font=font)[1]
     height = screen_height / 2
     for q in w:
