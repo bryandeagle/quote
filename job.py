@@ -2,9 +2,10 @@
 import feedparser
 from PIL import Image, ImageDraw, ImageFont
 
+FEED_URL = 'http://feeds.feedburner.com/brainyquote/QUOTEBR'
 
 def get_quote():
-    rss = feedparser.parse('http://brainyquote.com/link/quotebr.rss')
+    rss = feedparser.parse(FEED_URL)
     return {'author': rss['entries'][0]['title'],
             'quote': rss['entries'][0]['description'].replace('\"', '')}
 
