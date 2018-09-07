@@ -1,3 +1,2 @@
-cStringIO
 flask
-skimage.io
+io
