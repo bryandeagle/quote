@@ -1,2 +1,4 @@
 flask
 io
+feedparser
+Pillow

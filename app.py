@@ -8,9 +8,6 @@ def hello_world():
     return 'Hello from Flask!'
 
 
-@app.route('/image.jpg')
-def logo():
-    with open('/home/bryandeagle/quote/media/test.jpg', 'rb') as bites:
-        return send_file(io.BytesIO(bites.read()),
-                         attachment_filename='wallpaper.jpg',
-                         mimetype='image/jpg')
+@app.route('/image')
+def image():
+    redirect(url_for('static', filename='test.jpg'))
