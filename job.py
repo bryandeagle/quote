@@ -3,6 +3,7 @@ import feedparser
 from PIL import Image, ImageDraw, ImageFont
 
 FEED_URL = 'http://feeds.feedburner.com/brainyquote/QUOTEBR'
+FONT = '/home/bryandeagle/quote/media/NotoSerif.ttf'
 
 def get_quote():
     rss = feedparser.parse(FEED_URL)
@@ -27,7 +28,7 @@ def wrap(text, font, draw, max_width):
 def draw(quote, author):
     # Create image
     screen_width, screen_height = (1080, 1920)
-    font = ImageFont.truetype('NotoSerif.ttf', 72)
+    font = ImageFont.truetype(FONT, 72)
     img = Image.new('RGB', (screen_width, screen_height), color='black')
     draw = ImageDraw.Draw(img)
     # Add Quote
