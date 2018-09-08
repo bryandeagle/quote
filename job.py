@@ -52,11 +52,7 @@ def draw(quote, author):
     return img
 
 
-def create_image(filepath):
+if __name__ == '__main__':
     q = get_quote()
     img = draw(q['quote'], q['author'])
-    img.save(filepath)
-
-
-if __name__ == '__main__':
-    create_image(os.path.join(STATIC_DIR, 'quote.png'))
+    img.save(os.path.join(STATIC_DIR, 'quote.png'))
