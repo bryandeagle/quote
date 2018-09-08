@@ -34,21 +34,23 @@ def draw(quote, author):
     font = ImageFont.truetype(FONT, 72)
     img = Image.new('RGB', (screen_width, screen_height), color='black')
     draw = ImageDraw.Draw(img)
+    # Get heights
+    height = screen_height - 256
+    line_height = 1.4 * draw.textsize('M', font=font)[1]
+    # Add Author
+    a = '- {}'.format(author)
+    text_width, text_height = draw.textsize(a, font=font)
+    (x, y) = (screen_width - text_width) / 2, height
+    draw.text((x, y), a, font=font, fill='white')
+    height -= 2* line_height
     # Add Quote
     w = wrap(u'\u201c{}\u201d'.format(quote), font, draw, 980)
-    line_height = 1.5 * draw.textsize('M', font=font)[1]
-    height = screen_height / 2
     for q in w:
         text_width, text_height = draw.textsize(q, font=font)
         (x, y) = (screen_width - text_width) / 2, height
         draw.text((x, y), q, font=font, fill='white')
-        height += line_height
-    # Add Author
-    a = '- {}'.format(author)
-    height += line_height
-    text_width, text_height = draw.textsize(a, font=font)
-    (x, y) = (screen_width - text_width) / 2, height
-    draw.text((x, y), a, font=font, fill='white')
+        height -= line_height
+
     return img
 
 
