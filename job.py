@@ -42,10 +42,10 @@ def draw(quote, author):
     text_width, text_height = draw.textsize(a, font=font)
     (x, y) = (screen_width - text_width) / 2, height
     draw.text((x, y), a, font=font, fill='white')
-    height -= 2* line_height
+    height -= 2 * line_height
     # Add Quote
     w = wrap(u'\u201c{}\u201d'.format(quote), font, draw, 980)
-    for q in w:
+    for q in reversed(list(w)):
         text_width, text_height = draw.textsize(q, font=font)
         (x, y) = (screen_width - text_width) / 2, height
         draw.text((x, y), q, font=font, fill='white')
