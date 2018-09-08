@@ -1,8 +1,12 @@
 import feedparser
 from PIL import Image, ImageDraw, ImageFont
+import os
+
 
 FEED_URL = 'http://feeds.feedburner.com/brainyquote/QUOTEBR'
-FONT = '/home/bryandeagle/quote/media/NotoSerif.ttf'
+STATIC_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'static')
+FONT = os.path.join(STATIC_DIR, 'NotoSerif.ttf')
+
 
 def get_quote():
     rss = feedparser.parse(FEED_URL)
@@ -53,5 +57,6 @@ def create_image(filepath):
     img = draw(q['quote'], q['author'])
     img.save(filepath)
 
+
 if __name__ == '__main__':
-    create_image('/home/bryandeagle/static/quote.png')
+    create_image(os.path.join(STATIC_DIR, 'quote.png'))
