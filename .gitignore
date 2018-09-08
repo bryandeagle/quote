@@ -105,3 +105,6 @@ venv.bak/
 
 # PyCharm
 .idea/*
+
+# Quote
+static/quote.png
