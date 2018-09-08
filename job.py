@@ -35,8 +35,8 @@ def draw(quote, author):
     img = Image.new('RGB', (screen_width, screen_height), color='black')
     draw = ImageDraw.Draw(img)
     # Get heights
-    height = screen_height - 256
     line_height = 1.4 * draw.textsize('M', font=font)[1]
+    height = screen_height - 256 - line_height
     # Add Author
     a = '- {}'.format(author)
     text_width, text_height = draw.textsize(a, font=font)
