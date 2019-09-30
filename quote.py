@@ -28,7 +28,7 @@ def _wrap_text(text, font, drawing, max_width):
 def _draw(quotation, author):
     """ Create the image from the given quote """
     # Phone-specific constants
-    screen_width, screen_height = 1080, 1920
+    screen_width, screen_height = 1080, 2160
     font_name, font_size = 'NotoSerif.ttf', 72
     bottom_margin = 256  # Leave 256 pixels free
 
